@@ -1,0 +1,17 @@
+{
+  "scheme": "2d_flow",
+  "command": [
+    "bash",
+    "scripts/Flow/Offline/2D/train_policy_image_unet_two_stage_flow.sh",
+    "rl100",
+    "adroit_door_medium",
+    "timing_20261020",
+    "100",
+    "4"
+  ],
+  "tag": "timing_20261020",
+  "seconds": 101.13,
+  "reason": "sampled_4_epochs",
+  "returncode": -15,
+  "log": "/home/suchenyu/RL-100/rl100-setup/timing-logs/2d_flow.log"
+}

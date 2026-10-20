@@ -1,0 +1,220 @@
+[
+  {
+    "scheme": "2d_diffusion",
+    "command": [
+      "bash",
+      "scripts/Diffusion/Offline/2D/train_policy_image_unet_two_stage.sh",
+      "rl100",
+      "adroit_door_medium",
+      "timing_20261020",
+      "100",
+      "4"
+    ],
+    "tag": "timing_20261020",
+    "seconds": 106.13,
+    "reason": "sampled_4_epochs",
+    "returncode": -15,
+    "log": "/home/suchenyu/RL-100/rl100-setup/timing-logs/2d_diffusion.log",
+    "bc_epoch_samples": [
+      {
+        "epoch": 0,
+        "runtime_seconds": 1.647409987
+      },
+      {
+        "epoch": 1,
+        "runtime_seconds": 65.572654206
+      },
+      {
+        "epoch": 2,
+        "runtime_seconds": 74.610033385
+      }
+    ],
+    "bc_seconds_per_epoch_from_history_median": 9.037379178999998,
+    "evaluation_30_episodes_seconds_estimate": 53.75,
+    "bc_hours_point_estimate": 1.685396529833333,
+    "full_pipeline_hours_estimate": null,
+    "full_pipeline_limitation": "Only startup and BC sampled; critic, dynamics and BPPO have not been timed.",
+    "run_dir": "/home/suchenyu/RL-100/RL-100/data/outputs_2d/adroit_door_medium-rl100-timing_20261020_seed100/mish/resnet/skipnet"
+  },
+  {
+    "scheme": "2d_flow",
+    "command": [
+      "bash",
+      "scripts/Flow/Offline/2D/train_policy_image_unet_two_stage_flow.sh",
+      "rl100",
+      "adroit_door_medium",
+      "timing_20261020",
+      "100",
+      "4"
+    ],
+    "tag": "timing_20261020",
+    "seconds": 101.13,
+    "reason": "sampled_4_epochs",
+    "returncode": -15,
+    "log": "/home/suchenyu/RL-100/rl100-setup/timing-logs/2d_flow.log",
+    "bc_epoch_samples": [
+      {
+        "epoch": 0,
+        "runtime_seconds": 1.504739465
+      },
+      {
+        "epoch": 1,
+        "runtime_seconds": 60.532919053
+      },
+      {
+        "epoch": 2,
+        "runtime_seconds": 69.660584403
+      }
+    ],
+    "bc_seconds_per_epoch_from_history_median": 9.127665350000001,
+    "evaluation_30_episodes_seconds_estimate": 47.77777777777778,
+    "bc_hours_point_estimate": 2.2407157567901237,
+    "full_pipeline_hours_estimate": null,
+    "full_pipeline_limitation": "Only startup and BC sampled; critic, dynamics and BPPO have not been timed.",
+    "run_dir": "/home/suchenyu/RL-100/RL-100/data/outputs_2d_flow_two_stage/adroit_door_medium-rl100-flow-timing_20261020_seed100/mish/resnet/skipnet"
+  },
+  {
+    "scheme": "3d_diffusion",
+    "command": [
+      "bash",
+      "scripts/Diffusion/Offline/3D/train_policy.sh",
+      "rl100",
+      "adroit_door_medium",
+      "timing_20261020",
+      "100"
+    ],
+    "tag": "timing_20261020",
+    "seconds": 180.23,
+    "reason": "time_limit",
+    "returncode": -15,
+    "log": "/home/suchenyu/RL-100/rl100-setup/timing-logs/3d_diffusion.log",
+    "bc_epoch_samples": [
+      {
+        "epoch": 0,
+        "runtime_seconds": 2.903192207
+      },
+      {
+        "epoch": 1,
+        "runtime_seconds": 58.671002883
+      },
+      {
+        "epoch": 2,
+        "runtime_seconds": 65.164582676
+      },
+      {
+        "epoch": 3,
+        "runtime_seconds": 70.827190346
+      },
+      {
+        "epoch": 4,
+        "runtime_seconds": 76.500833183
+      },
+      {
+        "epoch": 5,
+        "runtime_seconds": 82.601722934
+      },
+      {
+        "epoch": 6,
+        "runtime_seconds": 88.032172633
+      },
+      {
+        "epoch": 7,
+        "runtime_seconds": 93.499600559
+      },
+      {
+        "epoch": 8,
+        "runtime_seconds": 99.244313131
+      },
+      {
+        "epoch": 9,
+        "runtime_seconds": 106.020376324
+      },
+      {
+        "epoch": 10,
+        "runtime_seconds": 111.119132403
+      },
+      {
+        "epoch": 11,
+        "runtime_seconds": 117.320821051
+      },
+      {
+        "epoch": 12,
+        "runtime_seconds": 123.15917732
+      },
+      {
+        "epoch": 13,
+        "runtime_seconds": 128.568620427
+      },
+      {
+        "epoch": 14,
+        "runtime_seconds": 134.632212122
+      },
+      {
+        "epoch": 15,
+        "runtime_seconds": 140.192194338
+      },
+      {
+        "epoch": 16,
+        "runtime_seconds": 145.840505473
+      },
+      {
+        "epoch": 17,
+        "runtime_seconds": 151.602256825
+      },
+      {
+        "epoch": 18,
+        "runtime_seconds": 156.913887697
+      },
+      {
+        "epoch": 19,
+        "runtime_seconds": 163.724224517
+      }
+    ],
+    "bc_seconds_per_epoch_from_history_median": 5.7091777045,
+    "evaluation_30_episodes_seconds_estimate": 50.0,
+    "bc_hours_point_estimate": 1.1181962840833335,
+    "full_pipeline_hours_estimate": null,
+    "full_pipeline_limitation": "Only startup and BC sampled; critic, dynamics and BPPO have not been timed.",
+    "run_dir": "/home/suchenyu/RL-100/RL-100/data/outputs_vib_ablation/adroit_door_medium-rl100-timing_20261020_seed100/relu/dp3vib/skipnet"
+  },
+  {
+    "scheme": "3d_flow",
+    "command": [
+      "bash",
+      "scripts/Flow/Offline/3D/train_policy_flow.sh",
+      "rl100",
+      "adroit_door_medium",
+      "timing_20261020",
+      "100"
+    ],
+    "tag": "timing_20261020",
+    "seconds": 80.1,
+    "reason": "sampled_4_epochs",
+    "returncode": -15,
+    "log": "/home/suchenyu/RL-100/rl100-setup/timing-logs/3d_flow.log",
+    "bc_epoch_samples": [
+      {
+        "epoch": 0,
+        "runtime_seconds": 2.853797001
+      },
+      {
+        "epoch": 1,
+        "runtime_seconds": 55.935431473
+      },
+      {
+        "epoch": 2,
+        "runtime_seconds": 61.257096842
+      },
+      {
+        "epoch": 3,
+        "runtime_seconds": 66.773455136
+      }
+    ],
+    "bc_seconds_per_epoch_from_history_median": 5.419011831499997,
+    "evaluation_30_episodes_seconds_estimate": 47.142857142857146,
+    "bc_hours_point_estimate": 1.4137486609682535,
+    "full_pipeline_hours_estimate": null,
+    "full_pipeline_limitation": "Only startup and BC sampled; critic, dynamics and BPPO have not been timed.",
+    "run_dir": "/home/suchenyu/RL-100/RL-100/data/outputs_flow/adroit_door_medium-rl100-flow-timing_20261020_seed100/relu/dp3vib/skipnet"
+  }
+]

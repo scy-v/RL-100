@@ -1,0 +1,16 @@
+{
+  "scheme": "3d_diffusion",
+  "command": [
+    "bash",
+    "scripts/Diffusion/Offline/3D/train_policy.sh",
+    "rl100",
+    "adroit_door_medium",
+    "timing_20261020",
+    "100"
+  ],
+  "tag": "timing_20261020",
+  "seconds": 180.23,
+  "reason": "time_limit",
+  "returncode": -15,
+  "log": "/home/suchenyu/RL-100/rl100-setup/timing-logs/3d_diffusion.log"
+}

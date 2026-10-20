@@ -1,0 +1,32 @@
+{
+  "python": "3.8.20",
+  "torch": "2.4.0+cu121",
+  "cuda": "12.1",
+  "venv_link": "/home/suchenyu/RL-100/.venv",
+  "venv_storage": "/data1/suchenyu/RL-100/.venv",
+  "rendering": "EGL",
+  "task": "adroit_door_medium",
+  "dataset_downloaded": true,
+  "source_commit": "6b6afceb7eb12525398207b5d6e66908863dc385",
+  "source_url": "https://github.com/scy-v/RL-100",
+  "storage_note": "Virtual environment is stored under /data1/suchenyu/RL-100/.venv; /home/suchenyu/RL-100/.venv is a symlink.",
+  "source_checkout": "sparse; simulation and real-robot Python code; large meshes and media omitted",
+  "verification_file": "verification.json",
+  "activation": "source /home/suchenyu/RL-100/rl100-setup/activate.sh",
+  "cache_storage": {
+    "openpi": "/data1/suchenyu/.cache/openpi",
+    "lerobot": "/data1/suchenyu/.cache/huggingface/lerobot"
+  },
+  "source_modified": false,
+  "dependency_scope": "simulation and real-robot dependencies",
+  "hardware_requirements": "../config/requirements-hardware.txt",
+  "hardware_verification_file": "verification.json#hardware",
+  "data_storage": "/data1/suchenyu/RL-100/data",
+  "r3m": {
+    "source": "/home/suchenyu/RL-100/rl100-setup/r3m",
+    "commit": "b2334e726887fa0206962d7984c69c5fb09cceab",
+    "model": "resnet18",
+    "weights": "/data1/suchenyu/RL-100/data/pretrained/r3m/r3m_18/model.pt",
+    "verification_file": "verification.json#r3m"
+  }
+}

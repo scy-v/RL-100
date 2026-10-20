@@ -1,0 +1,16 @@
+{
+  "scheme": "3d_flow",
+  "command": [
+    "bash",
+    "scripts/Flow/Offline/3D/train_policy_flow.sh",
+    "rl100",
+    "adroit_door_medium",
+    "timing_20261020",
+    "100"
+  ],
+  "tag": "timing_20261020",
+  "seconds": 80.1,
+  "reason": "sampled_4_epochs",
+  "returncode": -15,
+  "log": "/home/suchenyu/RL-100/rl100-setup/timing-logs/3d_flow.log"
+}

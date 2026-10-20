@@ -1,0 +1,233 @@
+{
+  "simulation": {
+    "torch": "2.4.0+cu121",
+    "cuda": "12.1",
+    "gpu": "NVIDIA GeForce RTX 4090 D",
+    "mujoco_py": "2.1.2.14",
+    "open3d": "0.19.0",
+    "task": "door-v0",
+    "steps": 10,
+    "image_shape": [
+      84,
+      84,
+      3
+    ],
+    "point_cloud_shape": [
+      512,
+      6
+    ],
+    "cuda_fps": "passed",
+    "reward": -0.02427465451673845,
+    "status": "passed",
+    "pip_check": "passed",
+    "hardware_import_check": "passed",
+    "source_modified": false,
+    "venv_storage": "/data1/suchenyu/RL-100/.venv",
+    "dataset_downloaded": false
+  },
+  "hardware": {
+    "status": "passed",
+    "packages": {
+      "ur_rtde": "1.6.1",
+      "atomics": "1.0.3",
+      "viser": "0.2.23",
+      "pyrealsense2": "2.55.1.6486",
+      "dt_apriltags": "3.1.7",
+      "fpsample": "1.0.2",
+      "zerorpc": "0.6.3",
+      "yapf": "0.43.0",
+      "littleutils": "0.2.4",
+      "sorcery": "0.2.2",
+      "wrapt": "1.17.2",
+      "dynamixel-sdk": "4.1.0",
+      "pyserial": "3.5"
+    },
+    "UR5Env_import": "passed",
+    "FrankaEnv_import": true,
+    "FrankaPourEnv_import": true,
+    "source_modified": false,
+    "hardware_connections_started": false,
+    "pip_check": "passed",
+    "simulation_with_original_source": "passed",
+    "additional_dependency_reason": {
+      "dynamixel-sdk": "Imported by the original Leap Hand DynamixelClient constructor."
+    }
+  },
+  "dataset": {
+    "dataset_path": "/home/suchenyu/RL-100/RL-100/data/adroit_door_medium.zarr",
+    "source_url": "https://huggingface.co/datasets/leokk/RL-100-adroit-door-medium/resolve/main/adroit_door_medium.zarr.tar.gz",
+    "sha256": "73a7cd510a0715492e8f8041843ac51edf1a0feb6d30706a95a5e5857addef37",
+    "official_checksum_verified": true,
+    "episodes": 200,
+    "arrays": {
+      "state": {
+        "shape": [
+          20000,
+          24
+        ],
+        "dtype": "float32"
+      },
+      "action": {
+        "shape": [
+          20000,
+          28
+        ],
+        "dtype": "float32"
+      },
+      "point_cloud": {
+        "shape": [
+          20000,
+          512,
+          6
+        ],
+        "dtype": "float32"
+      },
+      "img": {
+        "shape": [
+          20000,
+          84,
+          84,
+          3
+        ],
+        "dtype": "uint8"
+      },
+      "next_state": {
+        "shape": [
+          20000,
+          24
+        ],
+        "dtype": "float32"
+      },
+      "next_action": {
+        "shape": [
+          20000,
+          28
+        ],
+        "dtype": "float32"
+      },
+      "next_point_cloud": {
+        "shape": [
+          20000,
+          512,
+          6
+        ],
+        "dtype": "float32"
+      },
+      "next_img": {
+        "shape": [
+          20000,
+          84,
+          84,
+          3
+        ],
+        "dtype": "uint8"
+      },
+      "reward": {
+        "shape": [
+          20000,
+          1
+        ],
+        "dtype": "float32"
+      },
+      "done": {
+        "shape": [
+          20000,
+          1
+        ],
+        "dtype": "bool"
+      },
+      "timeout": {
+        "shape": [
+          20000,
+          1
+        ],
+        "dtype": "bool"
+      },
+      "return": {
+        "shape": [
+          20000,
+          1
+        ],
+        "dtype": "float32"
+      }
+    },
+    "train_samples": 19600,
+    "sample_obs_shapes": {
+      "point_cloud": [
+        3,
+        512,
+        6
+      ],
+      "agent_pos": [
+        3,
+        24
+      ],
+      "image": [
+        3,
+        84,
+        84,
+        3
+      ]
+    },
+    "sample_action_shape": [
+      3,
+      28
+    ],
+    "sample_read_ok": true,
+    "training_started": false
+  },
+  "r3m": {
+    "rl100_2d_epsilon": {
+      "batch_size_checked": 2,
+      "loss": 1.3905695676803589,
+      "backward_ok": true,
+      "action_shape": [
+        2,
+        1,
+        28
+      ],
+      "action_finite": true,
+      "peak_gpu_memory_mib": 251.6728515625
+    },
+    "rl100_2d_flow": {
+      "batch_size_checked": 2,
+      "loss": 2.200366735458374,
+      "backward_ok": true,
+      "action_shape": [
+        2,
+        1,
+        28
+      ],
+      "action_finite": true,
+      "peak_gpu_memory_mib": 251.67236328125
+    },
+    "r3m": {
+      "model": "resnet18",
+      "weights": "/data1/suchenyu/RL-100/data/pretrained/r3m/r3m_18/model.pt",
+      "bytes": 330226805,
+      "sha256": "b4dd6f407416889b864c70af974f416daacae0dd360334b5045861120ae336d2",
+      "source": "https://drive.google.com/uc?id=1A1ic-p4KtYlKXdXHcV2QV0cUzI4kn0u-",
+      "source_commit": "b2334e726887fa0206962d7984c69c5fb09cceab"
+    }
+  },
+  "ddp_diagnostic": {
+    "repository_module_compute_loss": {
+      "max_parameter_difference_after_each_update": [
+        0.00024360220413655043,
+        0.00031863152980804443,
+        0.0003315312787890434
+      ]
+    },
+    "ddp_forward_control": {
+      "max_parameter_difference_after_each_update": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "torch_version": "2.4.0+cu121",
+    "physical_gpus": "1,2",
+    "scope": "Actual 3D diffusion policy, BC loss, real dataset samples; 3 updates, no checkpoints or full training"
+  },
+  "note": "Historical setup/diagnostic records consolidated on 2026-10-20; not rerun during cleanup. Dataset verification predates training."
+}
