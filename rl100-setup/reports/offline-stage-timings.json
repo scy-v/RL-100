@@ -1,0 +1,788 @@
+{
+  "stages": [
+    {
+      "model": "2D",
+      "stage": "BC",
+      "minutes": 104.595,
+      "epochs": 600,
+      "measurement": "first_to_last_logged_timestamp",
+      "source": "/data1/suchenyu/RL-100/data/outputs_2d/adroit_door_medium-rl100-0112_seed100/mish/resnet/skipnet/wandb/offline-run-20261020_182243-jo9mb0u6/run-jo9mb0u6.wandb",
+      "gpu_count": 4,
+      "global_dataloader_batch": 512,
+      "per_gpu_dataloader_batch": 128
+    },
+    {
+      "model": "2D",
+      "stage": "Critic/IQL",
+      "minutes": 71.747,
+      "epochs": 600,
+      "measurement": "first_to_last_logged_timestamp",
+      "source": "/data1/suchenyu/RL-100/data/outputs_2d/adroit_door_medium-rl100-0112_seed100/mish/resnet/skipnet/wandb/offline-run-20261020_182243-jo9mb0u6/run-jo9mb0u6.wandb",
+      "gpu_count": 4,
+      "global_dataloader_batch": 512,
+      "per_gpu_dataloader_batch": 128
+    },
+    {
+      "model": "2D",
+      "stage": "Dynamics",
+      "minutes": 7.62,
+      "epochs": "",
+      "measurement": "first_to_last_logged_timestamp",
+      "source": "/data1/suchenyu/RL-100/data/outputs_2d/adroit_door_medium-rl100-0112_seed100/mish/resnet/skipnet/wandb/offline-run-20261020_182243-jo9mb0u6/run-jo9mb0u6.wandb",
+      "gpu_count": 4,
+      "global_dataloader_batch": 512,
+      "per_gpu_dataloader_batch": 128
+    },
+    {
+      "model": "3D",
+      "stage": "BC",
+      "minutes": 78.042,
+      "epochs": 600,
+      "measurement": "first_to_last_logged_timestamp",
+      "source": "/data1/suchenyu/RL-100/data/outputs_vib_ablation/adroit_door_medium-rl100-0112_seed100/relu/dp3vib/skipnet/wandb/offline-run-20261020_113312-v2ff7mlr/run-v2ff7mlr.wandb",
+      "gpu_count": 1,
+      "global_dataloader_batch": 256,
+      "per_gpu_dataloader_batch": 256
+    },
+    {
+      "model": "3D",
+      "stage": "Critic/IQL",
+      "minutes": 44.471,
+      "epochs": 400,
+      "measurement": "first_to_last_logged_timestamp",
+      "source": "/data1/suchenyu/RL-100/data/outputs_vib_ablation/adroit_door_medium-rl100-0112_seed100/relu/dp3vib/skipnet/wandb/offline-run-20261020_113312-v2ff7mlr/run-v2ff7mlr.wandb",
+      "gpu_count": 1,
+      "global_dataloader_batch": 256,
+      "per_gpu_dataloader_batch": 256
+    },
+    {
+      "model": "3D",
+      "stage": "Dynamics",
+      "minutes": 18.646,
+      "epochs": "",
+      "measurement": "first_to_last_logged_timestamp",
+      "source": "/data1/suchenyu/RL-100/data/outputs_vib_ablation/adroit_door_medium-rl100-0112_seed100/relu/dp3vib/skipnet/wandb/offline-run-20261020_113312-v2ff7mlr/run-v2ff7mlr.wandb",
+      "gpu_count": 1,
+      "global_dataloader_batch": 256,
+      "per_gpu_dataloader_batch": 256
+    },
+    {
+      "model": "2D",
+      "stage": "Offline pre-distillation before online",
+      "minutes": 116.974,
+      "epochs": 200,
+      "measurement": "first_to_last_logged_timestamp",
+      "source": "/data1/suchenyu/RL-100/data/outputs_2d/adroit_door_medium-rl100-0112_seed100/mish/resnet/skipnet/wandb/offline-run-20261021_083019-84ophisu/run-84ophisu.wandb",
+      "gpu_count": 1,
+      "global_dataloader_batch": 128,
+      "per_gpu_dataloader_batch": 128
+    },
+    {
+      "model": "3D",
+      "stage": "Offline pre-distillation before online",
+      "minutes": 21.491,
+      "epochs": 200,
+      "measurement": "first_to_last_logged_timestamp",
+      "source": "/data1/suchenyu/RL-100/data/outputs_vib_ablation/adroit_door_medium-rl100-0112_seed100/relu/dp3vib/skipnet/wandb/offline-run-20261020_180653-gxdyyjb3/run-gxdyyjb3.wandb",
+      "gpu_count": 1,
+      "global_dataloader_batch": 256,
+      "per_gpu_dataloader_batch": 256
+    }
+  ],
+  "offline_policy_sweeps": {
+    "2D": {
+      "completed_runs": 10,
+      "min_minutes": 148.77456007003784,
+      "max_minutes": 151.3703299164772,
+      "median_minutes": 149.93128599325814,
+      "bppo_steps": 6000,
+      "scope": "Includes OPE and evaluations; is not pure gradient-update time."
+    },
+    "3D": {
+      "completed_runs": 8,
+      "min_minutes": 26.943620415528617,
+      "max_minutes": 29.89076875448227,
+      "median_minutes": 28.232125399510064,
+      "bppo_steps": 5000,
+      "scope": "Includes OPE and evaluations; is not pure gradient-update time."
+    }
+  },
+  "notes": [
+    "Observed wall-clock spans between first and last metrics in each stage. Initial batch/setup and final save may fall outside these bounds.",
+    "BC/Critic/Dynamics: 2D used train_ddp.py; 3D used train.py. Configurations differ, so these are not matched hardware benchmarks.",
+    "Pre-distillation: both used single-GPU train.py, 200 epochs, with dataloader batch sizes 128 (2D) and 256 (3D).",
+    "Online distillation is interleaved with PPO and cannot be separated from these records."
+  ],
+  "raw_runs": [
+    {
+      "model": "2D",
+      "path": "/data1/suchenyu/RL-100/data/outputs_2d/adroit_door_medium-rl100-0112_seed100/mish/resnet/skipnet/2026-10-20-21-27-56-lr_2.83e-6_rollout_10/wandb/offline-run-20261020_212806-g906zcoi/run-g906zcoi.wandb",
+      "run_start": 1792531686.785419,
+      "exit_code": 0,
+      "groups": {
+        "other": {
+          "count": 6127,
+          "first": 1792531749.1573029,
+          "last": 1792540831.3770978,
+          "first_epoch": null,
+          "last_epoch": null,
+          "keys": [
+            "current_bppo_scores",
+            "current_mean_qs",
+            "dpg_loss",
+            "normal_eval_scores"
+          ],
+          "minutes": 151.3703299164772
+        }
+      }
+    },
+    {
+      "model": "2D",
+      "path": "/data1/suchenyu/RL-100/data/outputs_2d/adroit_door_medium-rl100-0112_seed100/mish/resnet/skipnet/2026-10-20-21-27-56-lr_2.83e-6_rollout_12/wandb/offline-run-20261020_212806-b7weav5j/run-b7weav5j.wandb",
+      "run_start": 1792531686.635946,
+      "exit_code": 0,
+      "groups": {
+        "other": {
+          "count": 6127,
+          "first": 1792531749.6749322,
+          "last": 1792540778.447388,
+          "first_epoch": null,
+          "last_epoch": null,
+          "keys": [
+            "current_bppo_scores",
+            "current_mean_qs",
+            "dpg_loss",
+            "normal_eval_scores"
+          ],
+          "minutes": 150.47954092820484
+        }
+      }
+    },
+    {
+      "model": "2D",
+      "path": "/data1/suchenyu/RL-100/data/outputs_2d/adroit_door_medium-rl100-0112_seed100/mish/resnet/skipnet/2026-10-20-21-27-56-lr_2.83e-6_rollout_3/wandb/offline-run-20261020_212805-r5in1a70/run-r5in1a70.wandb",
+      "run_start": 1792531686.159299,
+      "exit_code": 0,
+      "groups": {
+        "other": {
+          "count": 6127,
+          "first": 1792531745.2382882,
+          "last": 1792540758.327906,
+          "first_epoch": null,
+          "last_epoch": null,
+          "keys": [
+            "current_bppo_scores",
+            "current_mean_qs",
+            "dpg_loss",
+            "normal_eval_scores"
+          ],
+          "minutes": 150.21816029548646
+        }
+      }
+    },
+    {
+      "model": "2D",
+      "path": "/data1/suchenyu/RL-100/data/outputs_2d/adroit_door_medium-rl100-0112_seed100/mish/resnet/skipnet/2026-10-20-21-27-56-lr_2.83e-6_rollout_5/wandb/offline-run-20261020_212806-otp99vet/run-otp99vet.wandb",
+      "run_start": 1792531686.930998,
+      "exit_code": 0,
+      "groups": {
+        "other": {
+          "count": 6127,
+          "first": 1792531749.0593958,
+          "last": 1792540727.7240973,
+          "first_epoch": null,
+          "last_epoch": null,
+          "keys": [
+            "current_bppo_scores",
+            "current_mean_qs",
+            "dpg_loss",
+            "normal_eval_scores"
+          ],
+          "minutes": 149.64441169102986
+        }
+      }
+    },
+    {
+      "model": "2D",
+      "path": "/data1/suchenyu/RL-100/data/outputs_2d/adroit_door_medium-rl100-0112_seed100/mish/resnet/skipnet/2026-10-21-00-00-34-lr_1.42e-5_rollout_10/wandb/offline-run-20261021_000046-73fc5i4i/run-73fc5i4i.wandb",
+      "run_start": 1792540846.884781,
+      "exit_code": 0,
+      "groups": {
+        "other": {
+          "count": 6127,
+          "first": 1792540898.5560164,
+          "last": 1792549851.7868826,
+          "first_epoch": null,
+          "last_epoch": null,
+          "keys": [
+            "current_bppo_scores",
+            "current_mean_qs",
+            "dpg_loss",
+            "normal_eval_scores"
+          ],
+          "minutes": 149.22051443656287
+        }
+      }
+    },
+    {
+      "model": "2D",
+      "path": "/data1/suchenyu/RL-100/data/outputs_2d/adroit_door_medium-rl100-0112_seed100/mish/resnet/skipnet/2026-10-21-00-00-34-lr_1.42e-5_rollout_12/wandb/offline-run-20261021_000046-lasz6rnt/run-lasz6rnt.wandb",
+      "run_start": 1792540847.076488,
+      "exit_code": 0,
+      "groups": {
+        "other": {
+          "count": 6127,
+          "first": 1792540899.3368845,
+          "last": 1792549924.2740443,
+          "first_epoch": null,
+          "last_epoch": null,
+          "keys": [
+            "current_bppo_scores",
+            "current_mean_qs",
+            "dpg_loss",
+            "normal_eval_scores"
+          ],
+          "minutes": 150.41561932961147
+        }
+      }
+    },
+    {
+      "model": "2D",
+      "path": "/data1/suchenyu/RL-100/data/outputs_2d/adroit_door_medium-rl100-0112_seed100/mish/resnet/skipnet/2026-10-21-00-00-34-lr_1.42e-5_rollout_3/wandb/offline-run-20261021_000045-d74b56rw/run-d74b56rw.wandb",
+      "run_start": 1792540846.18204,
+      "exit_code": 0,
+      "groups": {
+        "other": {
+          "count": 6127,
+          "first": 1792540894.8922436,
+          "last": 1792549863.8456485,
+          "first_epoch": null,
+          "last_epoch": null,
+          "keys": [
+            "current_bppo_scores",
+            "current_mean_qs",
+            "dpg_loss",
+            "normal_eval_scores"
+          ],
+          "minutes": 149.4825567483902
+        }
+      }
+    },
+    {
+      "model": "2D",
+      "path": "/data1/suchenyu/RL-100/data/outputs_2d/adroit_door_medium-rl100-0112_seed100/mish/resnet/skipnet/2026-10-21-00-00-34-lr_1.42e-5_rollout_5/wandb/offline-run-20261021_000046-m4w4t4dx/run-m4w4t4dx.wandb",
+      "run_start": 1792540846.79269,
+      "exit_code": 0,
+      "groups": {
+        "other": {
+          "count": 6127,
+          "first": 1792540897.472321,
+          "last": 1792549823.9459252,
+          "first_epoch": null,
+          "last_epoch": null,
+          "keys": [
+            "current_bppo_scores",
+            "current_mean_qs",
+            "dpg_loss",
+            "normal_eval_scores"
+          ],
+          "minutes": 148.77456007003784
+        }
+      }
+    },
+    {
+      "model": "2D",
+      "path": "/data1/suchenyu/RL-100/data/outputs_2d/adroit_door_medium-rl100-0112_seed100/mish/resnet/skipnet/2026-10-21-02-32-07-lr_5.66e-6_rollout_3/wandb/offline-run-20261021_023216-5po2jqfd/run-5po2jqfd.wandb",
+      "run_start": 1792549936.936616,
+      "exit_code": 0,
+      "groups": {
+        "other": {
+          "count": 6127,
+          "first": 1792549988.3725705,
+          "last": 1792559014.0334785,
+          "first_epoch": null,
+          "last_epoch": null,
+          "keys": [
+            "current_bppo_scores",
+            "current_mean_qs",
+            "dpg_loss",
+            "normal_eval_scores"
+          ],
+          "minutes": 150.42768179972967
+        }
+      }
+    },
+    {
+      "model": "2D",
+      "path": "/data1/suchenyu/RL-100/data/outputs_2d/adroit_door_medium-rl100-0112_seed100/mish/resnet/skipnet/2026-10-21-02-32-07-lr_5.66e-6_rollout_5/wandb/offline-run-20261021_023216-ofjurbzb/run-ofjurbzb.wandb",
+      "run_start": 1792549936.646946,
+      "exit_code": 0,
+      "groups": {
+        "other": {
+          "count": 6127,
+          "first": 1792549986.670573,
+          "last": 1792558919.7743666,
+          "first_epoch": null,
+          "last_epoch": null,
+          "keys": [
+            "current_bppo_scores",
+            "current_mean_qs",
+            "dpg_loss",
+            "normal_eval_scores"
+          ],
+          "minutes": 148.88506322701772
+        }
+      }
+    },
+    {
+      "model": "2D",
+      "path": "/data1/suchenyu/RL-100/data/outputs_2d/adroit_door_medium-rl100-0112_seed100/mish/resnet/skipnet/wandb/offline-run-20261020_182243-jo9mb0u6/run-jo9mb0u6.wandb",
+      "run_start": 1792520563.542076,
+      "exit_code": 0,
+      "groups": {
+        "policy_train": {
+          "count": 22799,
+          "first": 1792520564.9790256,
+          "last": 1792526840.6533115,
+          "first_epoch": 0,
+          "last_epoch": 599,
+          "keys": [
+            "SR_test_L3",
+            "SR_test_L5",
+            "bc_loss",
+            "epoch",
+            "global_step",
+            "kl_loss",
+            "lr",
+            "mean_n_goal_achieved",
+            "mean_returns",
+            "mean_success_rates",
+            "recon_loss",
+            "test_mean_score",
+            "train_action_mse_error",
+            "train_loss"
+          ],
+          "minutes": 104.59457143147786
+        },
+        "critic": {
+          "count": 600,
+          "first": 1792526847.9391105,
+          "last": 1792531152.7541292,
+          "first_epoch": 599,
+          "last_epoch": null,
+          "keys": [
+            "Q_loss",
+            "bc_loss",
+            "epoch",
+            "global_step",
+            "kl_loss",
+            "lr",
+            "recon_loss",
+            "train_loss",
+            "value_loss"
+          ],
+          "minutes": 71.7469169775645
+        },
+        "dynamics": {
+          "count": 120,
+          "first": 1792531161.6090727,
+          "last": 1792531618.7930307,
+          "first_epoch": null,
+          "last_epoch": null,
+          "keys": [
+            "loss/dynamics_holdout_loss",
+            "loss/dynamics_train_loss"
+          ],
+          "minutes": 7.619732634226481
+        },
+        "other": {
+          "count": 1,
+          "first": 1792531673.2074633,
+          "last": 1792531673.2074633,
+          "first_epoch": null,
+          "last_epoch": null,
+          "keys": [
+            "current_bppo_scores",
+            "current_mean_qs",
+            "normal_eval_scores"
+          ],
+          "minutes": 0.0
+        }
+      }
+    },
+    {
+      "model": "2D",
+      "path": "/data1/suchenyu/RL-100/data/outputs_2d/adroit_door_medium-rl100-0112_seed100/mish/resnet/skipnet/wandb/offline-run-20261021_083019-84ophisu/run-84ophisu.wandb",
+      "run_start": 1792571419.669834,
+      "exit_code": null,
+      "groups": {
+        "policy_train": {
+          "count": 30799,
+          "first": 1792571422.4165788,
+          "last": 1792578440.8635223,
+          "first_epoch": 0,
+          "last_epoch": 199,
+          "keys": [
+            "SR_test_L3",
+            "SR_test_L5",
+            "bc_loss",
+            "epoch",
+            "global_step",
+            "lr",
+            "mean_n_goal_achieved",
+            "mean_returns",
+            "mean_success_rates",
+            "test_mean_score",
+            "train_action_mse_error",
+            "train_loss"
+          ],
+          "minutes": 116.97411572535833
+        },
+        "online_eval": {
+          "count": 2,
+          "first": 1792578849.223245,
+          "last": 1792582429.1097422,
+          "first_epoch": 199,
+          "last_epoch": null,
+          "keys": [
+            "bc_loss",
+            "cm_returns",
+            "cm_success rates",
+            "epoch",
+            "global_step",
+            "idql_returns",
+            "idql_success rates",
+            "lr",
+            "online actor_loss",
+            "online critic_loss",
+            "online ema returns",
+            "online ema success rates",
+            "online ppo collect returns",
+            "online ppo returns",
+            "online ppo success rates",
+            "train_loss"
+          ],
+          "minutes": 59.664774954319
+        }
+      }
+    },
+    {
+      "model": "3D",
+      "path": "/data1/suchenyu/RL-100/data/outputs_vib_ablation/adroit_door_medium-rl100-0112_seed100/relu/dp3vib/skipnet/wandb/offline-run-20261020_113312-v2ff7mlr/run-v2ff7mlr.wandb",
+      "run_start": 1792495992.767355,
+      "exit_code": 0,
+      "groups": {
+        "policy_train": {
+          "count": 46199,
+          "first": 1792495996.3114026,
+          "last": 1792500678.8147793,
+          "first_epoch": 0,
+          "last_epoch": 599,
+          "keys": [
+            "SR_test_L3",
+            "SR_test_L5",
+            "bc_loss",
+            "epoch",
+            "global_step",
+            "kl_loss",
+            "lr",
+            "mean_n_goal_achieved",
+            "mean_returns",
+            "mean_success_rates",
+            "recon_loss",
+            "test_mean_score",
+            "train_action_mse_error",
+            "train_loss"
+          ],
+          "minutes": 78.04172294537226
+        },
+        "critic": {
+          "count": 400,
+          "first": 1792500685.4836066,
+          "last": 1792503353.7235785,
+          "first_epoch": 599,
+          "last_epoch": null,
+          "keys": [
+            "Q_loss",
+            "bc_loss",
+            "epoch",
+            "global_step",
+            "kl_loss",
+            "lr",
+            "recon_loss",
+            "train_loss",
+            "value_loss"
+          ],
+          "minutes": 44.47066619793574
+        },
+        "dynamics": {
+          "count": 300,
+          "first": 1792503361.7308872,
+          "last": 1792504480.5022578,
+          "first_epoch": null,
+          "last_epoch": null,
+          "keys": [
+            "loss/dynamics_holdout_loss",
+            "loss/dynamics_train_loss"
+          ],
+          "minutes": 18.646189510822296
+        },
+        "other": {
+          "count": 5106,
+          "first": 1792504584.67827,
+          "last": 1792506378.1243954,
+          "first_epoch": null,
+          "last_epoch": null,
+          "keys": [
+            "current_bppo_scores",
+            "current_mean_qs",
+            "dpg_loss",
+            "ema_eval_scores",
+            "normal_eval_scores"
+          ],
+          "minutes": 29.89076875448227
+        }
+      }
+    },
+    {
+      "model": "3D",
+      "path": "/data1/suchenyu/RL-100/data/outputs_vib_ablation/adroit_door_medium-rl100-0112_seed100/relu/dp3vib/skipnet/wandb/offline-run-20261020_142629-9l3qyuri/run-9l3qyuri.wandb",
+      "run_start": 1792506389.863972,
+      "exit_code": 0,
+      "groups": {
+        "other": {
+          "count": 5106,
+          "first": 1792506494.31922,
+          "last": 1792508236.677209,
+          "first_epoch": null,
+          "last_epoch": null,
+          "keys": [
+            "current_bppo_scores",
+            "current_mean_qs",
+            "dpg_loss",
+            "ema_eval_scores",
+            "normal_eval_scores"
+          ],
+          "minutes": 29.03929981390635
+        }
+      }
+    },
+    {
+      "model": "3D",
+      "path": "/data1/suchenyu/RL-100/data/outputs_vib_ablation/adroit_door_medium-rl100-0112_seed100/relu/dp3vib/skipnet/wandb/offline-run-20261020_145727-cffjyv77/run-cffjyv77.wandb",
+      "run_start": 1792508247.451164,
+      "exit_code": 0,
+      "groups": {
+        "other": {
+          "count": 5106,
+          "first": 1792508349.1345708,
+          "last": 1792510097.2911294,
+          "first_epoch": null,
+          "last_epoch": null,
+          "keys": [
+            "current_bppo_scores",
+            "current_mean_qs",
+            "dpg_loss",
+            "ema_eval_scores",
+            "normal_eval_scores"
+          ],
+          "minutes": 29.135942641894022
+        }
+      }
+    },
+    {
+      "model": "3D",
+      "path": "/data1/suchenyu/RL-100/data/outputs_vib_ablation/adroit_door_medium-rl100-0112_seed100/relu/dp3vib/skipnet/wandb/offline-run-20261020_152828-trpnb1qx/run-trpnb1qx.wandb",
+      "run_start": 1792510108.418927,
+      "exit_code": 0,
+      "groups": {
+        "other": {
+          "count": 5106,
+          "first": 1792510211.1429396,
+          "last": 1792511827.7601645,
+          "first_epoch": null,
+          "last_epoch": null,
+          "keys": [
+            "current_bppo_scores",
+            "current_mean_qs",
+            "dpg_loss",
+            "ema_eval_scores",
+            "normal_eval_scores"
+          ],
+          "minutes": 26.943620415528617
+        }
+      }
+    },
+    {
+      "model": "3D",
+      "path": "/data1/suchenyu/RL-100/data/outputs_vib_ablation/adroit_door_medium-rl100-0112_seed100/relu/dp3vib/skipnet/wandb/offline-run-20261020_155718-bl8ulfdl/run-bl8ulfdl.wandb",
+      "run_start": 1792511838.263136,
+      "exit_code": 0,
+      "groups": {
+        "other": {
+          "count": 5106,
+          "first": 1792511938.7704637,
+          "last": 1792513576.7965834,
+          "first_epoch": null,
+          "last_epoch": null,
+          "keys": [
+            "current_bppo_scores",
+            "current_mean_qs",
+            "dpg_loss",
+            "ema_eval_scores",
+            "normal_eval_scores"
+          ],
+          "minutes": 27.30043532848358
+        }
+      }
+    },
+    {
+      "model": "3D",
+      "path": "/data1/suchenyu/RL-100/data/outputs_vib_ablation/adroit_door_medium-rl100-0112_seed100/relu/dp3vib/skipnet/wandb/offline-run-20261020_162626-pgtxa4l3/run-pgtxa4l3.wandb",
+      "run_start": 1792513586.876202,
+      "exit_code": 0,
+      "groups": {
+        "other": {
+          "count": 5106,
+          "first": 1792513687.5098648,
+          "last": 1792515333.006924,
+          "first_epoch": null,
+          "last_epoch": null,
+          "keys": [
+            "current_bppo_scores",
+            "current_mean_qs",
+            "dpg_loss",
+            "ema_eval_scores",
+            "normal_eval_scores"
+          ],
+          "minutes": 27.424950985113778
+        }
+      }
+    },
+    {
+      "model": "3D",
+      "path": "/data1/suchenyu/RL-100/data/outputs_vib_ablation/adroit_door_medium-rl100-0112_seed100/relu/dp3vib/skipnet/wandb/offline-run-20261020_165542-b2o0m8jh/run-b2o0m8jh.wandb",
+      "run_start": 1792515343.200834,
+      "exit_code": 0,
+      "groups": {
+        "other": {
+          "count": 5106,
+          "first": 1792515444.450671,
+          "last": 1792517083.4188392,
+          "first_epoch": null,
+          "last_epoch": null,
+          "keys": [
+            "current_bppo_scores",
+            "current_mean_qs",
+            "dpg_loss",
+            "ema_eval_scores",
+            "normal_eval_scores"
+          ],
+          "minutes": 27.31613613764445
+        }
+      }
+    },
+    {
+      "model": "3D",
+      "path": "/data1/suchenyu/RL-100/data/outputs_vib_ablation/adroit_door_medium-rl100-0112_seed100/relu/dp3vib/skipnet/wandb/offline-run-20261020_172453-il7vq0fc/run-il7vq0fc.wandb",
+      "run_start": 1792517093.677096,
+      "exit_code": 0,
+      "groups": {
+        "other": {
+          "count": 5106,
+          "first": 1792517195.4841805,
+          "last": 1792518940.7341447,
+          "first_epoch": null,
+          "last_epoch": null,
+          "keys": [
+            "current_bppo_scores",
+            "current_mean_qs",
+            "dpg_loss",
+            "ema_eval_scores",
+            "normal_eval_scores"
+          ],
+          "minutes": 29.08749940395355
+        }
+      }
+    },
+    {
+      "model": "3D",
+      "path": "/data1/suchenyu/RL-100/data/outputs_vib_ablation/adroit_door_medium-rl100-0112_seed100/relu/dp3vib/skipnet/wandb/offline-run-20261020_175551-hdjz98j5/run-hdjz98j5.wandb",
+      "run_start": 1792518951.523903,
+      "exit_code": 255,
+      "groups": {
+        "other": {
+          "count": 1020,
+          "first": 1792519052.7444186,
+          "last": 1792519278.1356966,
+          "first_epoch": null,
+          "last_epoch": null,
+          "keys": [
+            "current_bppo_scores",
+            "current_mean_qs",
+            "dpg_loss",
+            "ema_eval_scores",
+            "normal_eval_scores"
+          ],
+          "minutes": 3.7565213004748026
+        }
+      }
+    },
+    {
+      "model": "3D",
+      "path": "/data1/suchenyu/RL-100/data/outputs_vib_ablation/adroit_door_medium-rl100-0112_seed100/relu/dp3vib/skipnet/wandb/offline-run-20261020_180653-gxdyyjb3/run-gxdyyjb3.wandb",
+      "run_start": 1792519613.906018,
+      "exit_code": 0,
+      "groups": {
+        "policy_train": {
+          "count": 15399,
+          "first": 1792519616.846383,
+          "last": 1792520906.3028464,
+          "first_epoch": 0,
+          "last_epoch": 199,
+          "keys": [
+            "SR_test_L3",
+            "SR_test_L5",
+            "bc_loss",
+            "epoch",
+            "global_step",
+            "lr",
+            "mean_n_goal_achieved",
+            "mean_returns",
+            "mean_success_rates",
+            "test_mean_score",
+            "train_action_mse_error",
+            "train_loss"
+          ],
+          "minutes": 21.490941055615743
+        },
+        "online_eval": {
+          "count": 51,
+          "first": 1792521058.0149088,
+          "last": 1792548455.6837745,
+          "first_epoch": 199,
+          "last_epoch": null,
+          "keys": [
+            "bc_loss",
+            "cm_returns",
+            "cm_success rates",
+            "epoch",
+            "global_step",
+            "idql_returns",
+            "idql_success rates",
+            "lr",
+            "online actor_loss",
+            "online critic_loss",
+            "online ema returns",
+            "online ema success rates",
+            "online ppo collect returns",
+            "online ppo returns",
+            "online ppo success rates",
+            "train_loss"
+          ],
+          "minutes": 456.62781442801156
+        }
+      }
+    }
+  ]
+}

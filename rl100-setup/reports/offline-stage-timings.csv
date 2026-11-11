@@ -1,0 +1,9 @@
+model,stage,minutes,epochs,measurement,source,gpu_count,global_dataloader_batch,per_gpu_dataloader_batch
+2D,BC,104.595,600,first_to_last_logged_timestamp,/data1/suchenyu/RL-100/data/outputs_2d/adroit_door_medium-rl100-0112_seed100/mish/resnet/skipnet/wandb/offline-run-20261020_182243-jo9mb0u6/run-jo9mb0u6.wandb,4,512,128
+2D,Critic/IQL,71.747,600,first_to_last_logged_timestamp,/data1/suchenyu/RL-100/data/outputs_2d/adroit_door_medium-rl100-0112_seed100/mish/resnet/skipnet/wandb/offline-run-20261020_182243-jo9mb0u6/run-jo9mb0u6.wandb,4,512,128
+2D,Dynamics,7.62,,first_to_last_logged_timestamp,/data1/suchenyu/RL-100/data/outputs_2d/adroit_door_medium-rl100-0112_seed100/mish/resnet/skipnet/wandb/offline-run-20261020_182243-jo9mb0u6/run-jo9mb0u6.wandb,4,512,128
+3D,BC,78.042,600,first_to_last_logged_timestamp,/data1/suchenyu/RL-100/data/outputs_vib_ablation/adroit_door_medium-rl100-0112_seed100/relu/dp3vib/skipnet/wandb/offline-run-20261020_113312-v2ff7mlr/run-v2ff7mlr.wandb,1,256,256
+3D,Critic/IQL,44.471,400,first_to_last_logged_timestamp,/data1/suchenyu/RL-100/data/outputs_vib_ablation/adroit_door_medium-rl100-0112_seed100/relu/dp3vib/skipnet/wandb/offline-run-20261020_113312-v2ff7mlr/run-v2ff7mlr.wandb,1,256,256
+3D,Dynamics,18.646,,first_to_last_logged_timestamp,/data1/suchenyu/RL-100/data/outputs_vib_ablation/adroit_door_medium-rl100-0112_seed100/relu/dp3vib/skipnet/wandb/offline-run-20261020_113312-v2ff7mlr/run-v2ff7mlr.wandb,1,256,256
+2D,Offline pre-distillation before online,116.974,200,first_to_last_logged_timestamp,/data1/suchenyu/RL-100/data/outputs_2d/adroit_door_medium-rl100-0112_seed100/mish/resnet/skipnet/wandb/offline-run-20261021_083019-84ophisu/run-84ophisu.wandb,1,128,128
+3D,Offline pre-distillation before online,21.491,200,first_to_last_logged_timestamp,/data1/suchenyu/RL-100/data/outputs_vib_ablation/adroit_door_medium-rl100-0112_seed100/relu/dp3vib/skipnet/wandb/offline-run-20261020_180653-gxdyyjb3/run-gxdyyjb3.wandb,1,256,256

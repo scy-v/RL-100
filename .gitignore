@@ -73,3 +73,16 @@ scripts/train_policy_online_cm_flip.sh
 AGENTS.md
 .claude/
 .vscode/
+
+# Local Python environments (including symlinks).
+.venv
+venv/
+
+# Model weights and training checkpoints.
+*.pth
+*.ckpt
+*.safetensors
+*.onnx
+checkpoints/
+ckpt/
+ckpts/

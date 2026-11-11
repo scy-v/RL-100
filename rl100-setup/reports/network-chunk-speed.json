@@ -1,0 +1,1090 @@
+{
+  "gpu": "NVIDIA GeForce RTX 4090 D",
+  "physical_gpu": "2",
+  "batch": 128,
+  "precision": "FP32",
+  "warmup": 4,
+  "repeats": 3,
+  "steps_per_repeat": 6,
+  "observation_steps": 3,
+  "activation": "mish",
+  "rows": [
+    {
+      "modality": "3d",
+      "family": "diffusion",
+      "network": "skipnet",
+      "actions": 1,
+      "head_parameters": 1696332,
+      "bc": {
+        "median_ms": 32.652747351676226,
+        "repeat_medians_ms": [
+          32.652747351676226,
+          31.966838287189603,
+          32.76200802065432
+        ]
+      },
+      "head": {
+        "median_ms": 4.160961136221886,
+        "repeat_medians_ms": [
+          4.093678202480078,
+          4.160961136221886,
+          4.2348874267190695
+        ]
+      },
+      "status": "ok"
+    },
+    {
+      "modality": "3d",
+      "family": "diffusion",
+      "network": "dp3",
+      "actions": 1,
+      "head_parameters": 70761500,
+      "status": "unsupported",
+      "error": "Sizes of tensors must match except in dimension 1. Expected size 2 but got size 1 for tensor number 1 in the list."
+    },
+    {
+      "modality": "3d",
+      "family": "diffusion",
+      "network": "skipnet",
+      "actions": 4,
+      "head_parameters": 1739424,
+      "bc": {
+        "median_ms": 37.081944989040494,
+        "repeat_medians_ms": [
+          37.51698695123196,
+          37.02823305502534,
+          37.081944989040494
+        ]
+      },
+      "head": {
+        "median_ms": 4.148256499320269,
+        "repeat_medians_ms": [
+          4.560137866064906,
+          4.148256499320269,
+          4.097433760762215
+        ]
+      },
+      "status": "ok"
+    },
+    {
+      "modality": "3d",
+      "family": "diffusion",
+      "network": "dp3",
+      "actions": 4,
+      "head_parameters": 70761500,
+      "bc": {
+        "median_ms": 68.19956609979272,
+        "repeat_medians_ms": [
+          68.19956609979272,
+          67.35535571351647,
+          71.00754603743553
+        ]
+      },
+      "head": {
+        "median_ms": 41.24053893610835,
+        "repeat_medians_ms": [
+          41.01106943562627,
+          41.24053893610835,
+          41.46573110483587
+        ]
+      },
+      "status": "ok"
+    },
+    {
+      "modality": "3d",
+      "family": "diffusion",
+      "network": "skipnet",
+      "actions": 16,
+      "head_parameters": 1911792,
+      "bc": {
+        "median_ms": 34.35027762316167,
+        "repeat_medians_ms": [
+          34.35027762316167,
+          34.5019840169698,
+          33.422885462641716
+        ]
+      },
+      "head": {
+        "median_ms": 4.397510550916195,
+        "repeat_medians_ms": [
+          4.397510550916195,
+          4.578890977427363,
+          4.389012698084116
+        ]
+      },
+      "status": "ok"
+    },
+    {
+      "modality": "3d",
+      "family": "diffusion",
+      "network": "dp3",
+      "actions": 16,
+      "head_parameters": 70761500,
+      "bc": {
+        "median_ms": 73.486995883286,
+        "repeat_medians_ms": [
+          73.486995883286,
+          73.74093635007739,
+          73.31790239550173
+        ]
+      },
+      "head": {
+        "median_ms": 45.412692008540034,
+        "repeat_medians_ms": [
+          43.44918322749436,
+          45.412692008540034,
+          45.8490657620132
+        ]
+      },
+      "status": "ok"
+    },
+    {
+      "modality": "3d",
+      "family": "flow",
+      "network": "skipnet",
+      "actions": 1,
+      "head_parameters": 1696332,
+      "bc": {
+        "median_ms": 35.921051632612944,
+        "repeat_medians_ms": [
+          35.921051632612944,
+          35.9440662432462,
+          35.61548050493002
+        ]
+      },
+      "head": {
+        "median_ms": 4.603077657520771,
+        "repeat_medians_ms": [
+          4.677857039496303,
+          4.603077657520771,
+          4.500296665355563
+        ]
+      },
+      "status": "ok"
+    },
+    {
+      "modality": "3d",
+      "family": "flow",
+      "network": "dp3",
+      "actions": 1,
+      "head_parameters": 70761500,
+      "status": "unsupported",
+      "error": "Sizes of tensors must match except in dimension 1. Expected size 2 but got size 1 for tensor number 1 in the list."
+    },
+    {
+      "modality": "3d",
+      "family": "flow",
+      "network": "skipnet",
+      "actions": 4,
+      "head_parameters": 1739424,
+      "bc": {
+        "median_ms": 35.09820741601288,
+        "repeat_medians_ms": [
+          37.37385640852153,
+          35.09820741601288,
+          33.49836659617722
+        ]
+      },
+      "head": {
+        "median_ms": 4.198176320642233,
+        "repeat_medians_ms": [
+          4.089260706678033,
+          4.218116402626038,
+          4.198176320642233
+        ]
+      },
+      "status": "ok"
+    },
+    {
+      "modality": "3d",
+      "family": "flow",
+      "network": "dp3",
+      "actions": 4,
+      "head_parameters": 70761500,
+      "bc": {
+        "median_ms": 67.05868057906628,
+        "repeat_medians_ms": [
+          67.05868057906628,
+          67.01420759782195,
+          68.50285781547427
+        ]
+      },
+      "head": {
+        "median_ms": 40.55541241541505,
+        "repeat_medians_ms": [
+          41.14945256151259,
+          40.55541241541505,
+          39.968959521502256
+        ]
+      },
+      "status": "ok"
+    },
+    {
+      "modality": "3d",
+      "family": "flow",
+      "network": "skipnet",
+      "actions": 16,
+      "head_parameters": 1911792,
+      "bc": {
+        "median_ms": 33.70741265825927,
+        "repeat_medians_ms": [
+          33.9512990321964,
+          33.70741265825927,
+          32.66522125340998
+        ]
+      },
+      "head": {
+        "median_ms": 4.201381001621485,
+        "repeat_medians_ms": [
+          4.256234271451831,
+          4.201381001621485,
+          4.188816994428635
+        ]
+      },
+      "status": "ok"
+    },
+    {
+      "modality": "3d",
+      "family": "flow",
+      "network": "dp3",
+      "actions": 16,
+      "head_parameters": 70761500,
+      "bc": {
+        "median_ms": 72.68577045761049,
+        "repeat_medians_ms": [
+          72.76763138361275,
+          72.47540005482733,
+          72.68577045761049
+        ]
+      },
+      "head": {
+        "median_ms": 43.190365424379706,
+        "repeat_medians_ms": [
+          43.190365424379706,
+          43.281254125759006,
+          42.920159408822656
+        ]
+      },
+      "status": "ok"
+    },
+    {
+      "modality": "2d",
+      "family": "diffusion",
+      "network": "dp3",
+      "actions": 1,
+      "head_parameters": 88308764,
+      "status": "unsupported",
+      "error": "Sizes of tensors must match except in dimension 1. Expected size 2 but got size 1 for tensor number 1 in the list."
+    },
+    {
+      "modality": "2d",
+      "family": "diffusion",
+      "network": "skipnet",
+      "actions": 16,
+      "head_parameters": 2225136,
+      "bc": {
+        "median_ms": 198.29516019672155,
+        "repeat_medians_ms": [
+          198.29516019672155,
+          198.12883716076612,
+          198.43551982194185
+        ]
+      },
+      "head": {
+        "median_ms": 4.353249445557594,
+        "repeat_medians_ms": [
+          4.3247113935649395,
+          4.362498410046101,
+          4.353249445557594
+        ]
+      },
+      "status": "ok"
+    },
+    {
+      "modality": "2d",
+      "family": "diffusion",
+      "network": "dp3",
+      "actions": 16,
+      "head_parameters": 88308764,
+      "bc": {
+        "median_ms": 241.6265078354627,
+        "repeat_medians_ms": [
+          240.66977808251977,
+          241.6265078354627,
+          242.00931494124234
+        ]
+      },
+      "head": {
+        "median_ms": 45.2592414803803,
+        "repeat_medians_ms": [
+          45.96668807789683,
+          44.771253829821944,
+          45.2592414803803
+        ]
+      },
+      "status": "ok"
+    },
+    {
+      "modality": "2d",
+      "family": "flow",
+      "network": "skipnet",
+      "actions": 1,
+      "head_parameters": 2009676,
+      "bc": {
+        "median_ms": 198.74552940018475,
+        "repeat_medians_ms": [
+          198.73682758770883,
+          199.2657375521958,
+          198.74552940018475
+        ]
+      },
+      "head": {
+        "median_ms": 4.196058958768845,
+        "repeat_medians_ms": [
+          4.137040115892887,
+          4.222489427775145,
+          4.196058958768845
+        ]
+      },
+      "status": "ok"
+    },
+    {
+      "modality": "2d",
+      "family": "flow",
+      "network": "dp3",
+      "actions": 1,
+      "head_parameters": 88308764,
+      "status": "unsupported",
+      "error": "Sizes of tensors must match except in dimension 1. Expected size 2 but got size 1 for tensor number 1 in the list."
+    },
+    {
+      "modality": "2d",
+      "family": "flow",
+      "network": "skipnet",
+      "actions": 4,
+      "head_parameters": 2052768,
+      "bc": {
+        "median_ms": 200.43576508760452,
+        "repeat_medians_ms": [
+          200.43576508760452,
+          200.61025745235384,
+          200.0551945529878
+        ]
+      },
+      "head": {
+        "median_ms": 3.8547345902770758,
+        "repeat_medians_ms": [
+          3.795500146225095,
+          3.8547345902770758,
+          4.3048139195889235
+        ]
+      },
+      "status": "ok"
+    },
+    {
+      "modality": "2d",
+      "family": "flow",
+      "network": "dp3",
+      "actions": 4,
+      "head_parameters": 88308764,
+      "bc": {
+        "median_ms": 233.14709309488535,
+        "repeat_medians_ms": [
+          233.14709309488535,
+          233.12597209587693,
+          234.62688410654664
+        ]
+      },
+      "head": {
+        "median_ms": 42.82357613556087,
+        "repeat_medians_ms": [
+          39.127038326114416,
+          43.11481933109462,
+          42.82357613556087
+        ]
+      },
+      "status": "ok"
+    },
+    {
+      "modality": "2d",
+      "family": "flow",
+      "network": "skipnet",
+      "actions": 16,
+      "head_parameters": 2225136,
+      "bc": {
+        "median_ms": 210.0724873598665,
+        "repeat_medians_ms": [
+          211.30184503272176,
+          207.99628808163106,
+          210.0724873598665
+        ]
+      },
+      "head": {
+        "median_ms": 4.393908893689513,
+        "repeat_medians_ms": [
+          4.393908893689513,
+          5.700241308659315,
+          4.322310443967581
+        ]
+      },
+      "status": "ok"
+    },
+    {
+      "modality": "2d",
+      "family": "flow",
+      "network": "dp3",
+      "actions": 16,
+      "head_parameters": 88308764,
+      "bc": {
+        "median_ms": 249.6274379082024,
+        "repeat_medians_ms": [
+          249.17952273972332,
+          249.6274379082024,
+          251.02734379470348
+        ]
+      },
+      "head": {
+        "median_ms": 47.33060230500996,
+        "repeat_medians_ms": [
+          48.91094705089927,
+          47.22496261820197,
+          47.33060230500996
+        ]
+      },
+      "status": "ok"
+    },
+    {
+      "modality": "2d",
+      "family": "diffusion",
+      "network": "skipnet",
+      "actions": 1,
+      "head_parameters": 2009676,
+      "bc": {
+        "median_ms": 196.86835422180593,
+        "repeat_medians_ms": [
+          196.86835422180593,
+          197.11521524004638,
+          196.71784457750618
+        ]
+      },
+      "head": {
+        "median_ms": 3.9330923464149237,
+        "repeat_medians_ms": [
+          3.941325470805168,
+          3.9192570839077234,
+          3.9330923464149237
+        ]
+      },
+      "status": "ok"
+    },
+    {
+      "modality": "2d",
+      "family": "diffusion",
+      "network": "skipnet",
+      "actions": 4,
+      "head_parameters": 2052768,
+      "bc": {
+        "median_ms": 198.54651461355388,
+        "repeat_medians_ms": [
+          198.7581616267562,
+          198.16650543361902,
+          198.54651461355388
+        ]
+      },
+      "head": {
+        "median_ms": 3.8377169985324144,
+        "repeat_medians_ms": [
+          3.4785664174705744,
+          3.8377169985324144,
+          3.8865716196596622
+        ]
+      },
+      "status": "ok"
+    },
+    {
+      "modality": "2d",
+      "family": "diffusion",
+      "network": "dp3",
+      "actions": 4,
+      "head_parameters": 88308764,
+      "bc": {
+        "median_ms": 231.17808043025434,
+        "repeat_medians_ms": [
+          233.1011719070375,
+          231.17808043025434,
+          231.16343887522817
+        ]
+      },
+      "head": {
+        "median_ms": 40.030848467722535,
+        "repeat_medians_ms": [
+          39.918618043884635,
+          40.04016239196062,
+          40.030848467722535
+        ]
+      },
+      "status": "ok"
+    }
+  ],
+  "scope": "Full BC: H2D, loss forward/backward, optimizer, EMA. Head: cached synthetic condition, denoiser MSE forward/backward, optimizer, EMA. Same chunk recipe within each modality; only model, scheduler, action length vary.",
+  "first_pass_rows": [
+    {
+      "modality": "3d",
+      "family": "diffusion",
+      "network": "skipnet",
+      "actions": 1,
+      "head_parameters": 1696332,
+      "bc": {
+        "median_ms": 32.652747351676226,
+        "repeat_medians_ms": [
+          32.652747351676226,
+          31.966838287189603,
+          32.76200802065432
+        ]
+      },
+      "head": {
+        "median_ms": 4.160961136221886,
+        "repeat_medians_ms": [
+          4.093678202480078,
+          4.160961136221886,
+          4.2348874267190695
+        ]
+      },
+      "status": "ok"
+    },
+    {
+      "modality": "3d",
+      "family": "diffusion",
+      "network": "dp3",
+      "actions": 1,
+      "head_parameters": 70761500,
+      "status": "unsupported",
+      "error": "Sizes of tensors must match except in dimension 1. Expected size 2 but got size 1 for tensor number 1 in the list."
+    },
+    {
+      "modality": "3d",
+      "family": "diffusion",
+      "network": "skipnet",
+      "actions": 4,
+      "head_parameters": 1739424,
+      "bc": {
+        "median_ms": 37.081944989040494,
+        "repeat_medians_ms": [
+          37.51698695123196,
+          37.02823305502534,
+          37.081944989040494
+        ]
+      },
+      "head": {
+        "median_ms": 4.148256499320269,
+        "repeat_medians_ms": [
+          4.560137866064906,
+          4.148256499320269,
+          4.097433760762215
+        ]
+      },
+      "status": "ok"
+    },
+    {
+      "modality": "3d",
+      "family": "diffusion",
+      "network": "dp3",
+      "actions": 4,
+      "head_parameters": 70761500,
+      "bc": {
+        "median_ms": 68.19956609979272,
+        "repeat_medians_ms": [
+          68.19956609979272,
+          67.35535571351647,
+          71.00754603743553
+        ]
+      },
+      "head": {
+        "median_ms": 41.24053893610835,
+        "repeat_medians_ms": [
+          41.01106943562627,
+          41.24053893610835,
+          41.46573110483587
+        ]
+      },
+      "status": "ok"
+    },
+    {
+      "modality": "3d",
+      "family": "diffusion",
+      "network": "skipnet",
+      "actions": 16,
+      "head_parameters": 1911792,
+      "bc": {
+        "median_ms": 34.35027762316167,
+        "repeat_medians_ms": [
+          34.35027762316167,
+          34.5019840169698,
+          33.422885462641716
+        ]
+      },
+      "head": {
+        "median_ms": 4.397510550916195,
+        "repeat_medians_ms": [
+          4.397510550916195,
+          4.578890977427363,
+          4.389012698084116
+        ]
+      },
+      "status": "ok"
+    },
+    {
+      "modality": "3d",
+      "family": "diffusion",
+      "network": "dp3",
+      "actions": 16,
+      "head_parameters": 70761500,
+      "bc": {
+        "median_ms": 73.486995883286,
+        "repeat_medians_ms": [
+          73.486995883286,
+          73.74093635007739,
+          73.31790239550173
+        ]
+      },
+      "head": {
+        "median_ms": 45.412692008540034,
+        "repeat_medians_ms": [
+          43.44918322749436,
+          45.412692008540034,
+          45.8490657620132
+        ]
+      },
+      "status": "ok"
+    },
+    {
+      "modality": "3d",
+      "family": "flow",
+      "network": "skipnet",
+      "actions": 1,
+      "head_parameters": 1696332,
+      "bc": {
+        "median_ms": 35.921051632612944,
+        "repeat_medians_ms": [
+          35.921051632612944,
+          35.9440662432462,
+          35.61548050493002
+        ]
+      },
+      "head": {
+        "median_ms": 4.603077657520771,
+        "repeat_medians_ms": [
+          4.677857039496303,
+          4.603077657520771,
+          4.500296665355563
+        ]
+      },
+      "status": "ok"
+    },
+    {
+      "modality": "3d",
+      "family": "flow",
+      "network": "dp3",
+      "actions": 1,
+      "head_parameters": 70761500,
+      "status": "unsupported",
+      "error": "Sizes of tensors must match except in dimension 1. Expected size 2 but got size 1 for tensor number 1 in the list."
+    },
+    {
+      "modality": "3d",
+      "family": "flow",
+      "network": "skipnet",
+      "actions": 4,
+      "head_parameters": 1739424,
+      "bc": {
+        "median_ms": 35.09820741601288,
+        "repeat_medians_ms": [
+          37.37385640852153,
+          35.09820741601288,
+          33.49836659617722
+        ]
+      },
+      "head": {
+        "median_ms": 4.198176320642233,
+        "repeat_medians_ms": [
+          4.089260706678033,
+          4.218116402626038,
+          4.198176320642233
+        ]
+      },
+      "status": "ok"
+    },
+    {
+      "modality": "3d",
+      "family": "flow",
+      "network": "dp3",
+      "actions": 4,
+      "head_parameters": 70761500,
+      "bc": {
+        "median_ms": 67.05868057906628,
+        "repeat_medians_ms": [
+          67.05868057906628,
+          67.01420759782195,
+          68.50285781547427
+        ]
+      },
+      "head": {
+        "median_ms": 40.55541241541505,
+        "repeat_medians_ms": [
+          41.14945256151259,
+          40.55541241541505,
+          39.968959521502256
+        ]
+      },
+      "status": "ok"
+    },
+    {
+      "modality": "3d",
+      "family": "flow",
+      "network": "skipnet",
+      "actions": 16,
+      "head_parameters": 1911792,
+      "bc": {
+        "median_ms": 33.70741265825927,
+        "repeat_medians_ms": [
+          33.9512990321964,
+          33.70741265825927,
+          32.66522125340998
+        ]
+      },
+      "head": {
+        "median_ms": 4.201381001621485,
+        "repeat_medians_ms": [
+          4.256234271451831,
+          4.201381001621485,
+          4.188816994428635
+        ]
+      },
+      "status": "ok"
+    },
+    {
+      "modality": "3d",
+      "family": "flow",
+      "network": "dp3",
+      "actions": 16,
+      "head_parameters": 70761500,
+      "bc": {
+        "median_ms": 72.68577045761049,
+        "repeat_medians_ms": [
+          72.76763138361275,
+          72.47540005482733,
+          72.68577045761049
+        ]
+      },
+      "head": {
+        "median_ms": 43.190365424379706,
+        "repeat_medians_ms": [
+          43.190365424379706,
+          43.281254125759006,
+          42.920159408822656
+        ]
+      },
+      "status": "ok"
+    },
+    {
+      "modality": "2d",
+      "family": "diffusion",
+      "network": "skipnet",
+      "actions": 1,
+      "head_parameters": 2009676,
+      "bc": {
+        "median_ms": 244.62179536931217,
+        "repeat_medians_ms": [
+          236.89882643520832,
+          244.62179536931217,
+          245.73008343577385
+        ]
+      },
+      "head": {
+        "median_ms": 4.368354100733995,
+        "repeat_medians_ms": [
+          3.955971682444215,
+          4.368354100733995,
+          6.867953343316913
+        ]
+      },
+      "status": "ok"
+    },
+    {
+      "modality": "2d",
+      "family": "diffusion",
+      "network": "dp3",
+      "actions": 1,
+      "head_parameters": 88308764,
+      "status": "unsupported",
+      "error": "Sizes of tensors must match except in dimension 1. Expected size 2 but got size 1 for tensor number 1 in the list."
+    },
+    {
+      "modality": "2d",
+      "family": "diffusion",
+      "network": "skipnet",
+      "actions": 4,
+      "head_parameters": 2052768,
+      "bc": {
+        "median_ms": 248.4978591091931,
+        "repeat_medians_ms": [
+          248.82701272144914,
+          248.4978591091931,
+          247.26609233766794
+        ]
+      },
+      "head": {
+        "median_ms": 4.057426005601883,
+        "repeat_medians_ms": [
+          4.057426005601883,
+          3.9180079475045204,
+          4.278391366824508
+        ]
+      },
+      "status": "ok"
+    },
+    {
+      "modality": "2d",
+      "family": "diffusion",
+      "network": "dp3",
+      "actions": 4,
+      "head_parameters": 88308764,
+      "bc": {
+        "median_ms": 292.0662078540772,
+        "repeat_medians_ms": [
+          293.55125804431736,
+          292.0662078540772,
+          246.88563961535692
+        ]
+      },
+      "head": {
+        "median_ms": 44.69586489722133,
+        "repeat_medians_ms": [
+          44.43046054802835,
+          44.69586489722133,
+          45.71004817262292
+        ]
+      },
+      "status": "ok"
+    },
+    {
+      "modality": "2d",
+      "family": "diffusion",
+      "network": "skipnet",
+      "actions": 16,
+      "head_parameters": 2225136,
+      "bc": {
+        "median_ms": 198.29516019672155,
+        "repeat_medians_ms": [
+          198.29516019672155,
+          198.12883716076612,
+          198.43551982194185
+        ]
+      },
+      "head": {
+        "median_ms": 4.353249445557594,
+        "repeat_medians_ms": [
+          4.3247113935649395,
+          4.362498410046101,
+          4.353249445557594
+        ]
+      },
+      "status": "ok"
+    },
+    {
+      "modality": "2d",
+      "family": "diffusion",
+      "network": "dp3",
+      "actions": 16,
+      "head_parameters": 88308764,
+      "bc": {
+        "median_ms": 241.6265078354627,
+        "repeat_medians_ms": [
+          240.66977808251977,
+          241.6265078354627,
+          242.00931494124234
+        ]
+      },
+      "head": {
+        "median_ms": 45.2592414803803,
+        "repeat_medians_ms": [
+          45.96668807789683,
+          44.771253829821944,
+          45.2592414803803
+        ]
+      },
+      "status": "ok"
+    },
+    {
+      "modality": "2d",
+      "family": "flow",
+      "network": "skipnet",
+      "actions": 1,
+      "head_parameters": 2009676,
+      "bc": {
+        "median_ms": 198.74552940018475,
+        "repeat_medians_ms": [
+          198.73682758770883,
+          199.2657375521958,
+          198.74552940018475
+        ]
+      },
+      "head": {
+        "median_ms": 4.196058958768845,
+        "repeat_medians_ms": [
+          4.137040115892887,
+          4.222489427775145,
+          4.196058958768845
+        ]
+      },
+      "status": "ok"
+    },
+    {
+      "modality": "2d",
+      "family": "flow",
+      "network": "dp3",
+      "actions": 1,
+      "head_parameters": 88308764,
+      "status": "unsupported",
+      "error": "Sizes of tensors must match except in dimension 1. Expected size 2 but got size 1 for tensor number 1 in the list."
+    },
+    {
+      "modality": "2d",
+      "family": "flow",
+      "network": "skipnet",
+      "actions": 4,
+      "head_parameters": 2052768,
+      "bc": {
+        "median_ms": 200.43576508760452,
+        "repeat_medians_ms": [
+          200.43576508760452,
+          200.61025745235384,
+          200.0551945529878
+        ]
+      },
+      "head": {
+        "median_ms": 3.8547345902770758,
+        "repeat_medians_ms": [
+          3.795500146225095,
+          3.8547345902770758,
+          4.3048139195889235
+        ]
+      },
+      "status": "ok"
+    },
+    {
+      "modality": "2d",
+      "family": "flow",
+      "network": "dp3",
+      "actions": 4,
+      "head_parameters": 88308764,
+      "bc": {
+        "median_ms": 233.14709309488535,
+        "repeat_medians_ms": [
+          233.14709309488535,
+          233.12597209587693,
+          234.62688410654664
+        ]
+      },
+      "head": {
+        "median_ms": 42.82357613556087,
+        "repeat_medians_ms": [
+          39.127038326114416,
+          43.11481933109462,
+          42.82357613556087
+        ]
+      },
+      "status": "ok"
+    },
+    {
+      "modality": "2d",
+      "family": "flow",
+      "network": "skipnet",
+      "actions": 16,
+      "head_parameters": 2225136,
+      "bc": {
+        "median_ms": 210.0724873598665,
+        "repeat_medians_ms": [
+          211.30184503272176,
+          207.99628808163106,
+          210.0724873598665
+        ]
+      },
+      "head": {
+        "median_ms": 4.393908893689513,
+        "repeat_medians_ms": [
+          4.393908893689513,
+          5.700241308659315,
+          4.322310443967581
+        ]
+      },
+      "status": "ok"
+    },
+    {
+      "modality": "2d",
+      "family": "flow",
+      "network": "dp3",
+      "actions": 16,
+      "head_parameters": 88308764,
+      "bc": {
+        "median_ms": 249.6274379082024,
+        "repeat_medians_ms": [
+          249.17952273972332,
+          249.6274379082024,
+          251.02734379470348
+        ]
+      },
+      "head": {
+        "median_ms": 47.33060230500996,
+        "repeat_medians_ms": [
+          48.91094705089927,
+          47.22496261820197,
+          47.33060230500996
+        ]
+      },
+      "status": "ok"
+    }
+  ],
+  "comparisons": [
+    {
+      "modality": "3d",
+      "family": "diffusion",
+      "unet_skip_4": 1.8391582782388838,
+      "unet_skip_16": 2.1393421237951,
+      "skip_16_1": 1.0519873642852384,
+      "unet_16_4": 1.0775287891972285,
+      "head_unet_skip_4": 9.941655956632866,
+      "head_unet_skip_16": 10.326909164340396
+    },
+    {
+      "modality": "3d",
+      "family": "flow",
+      "unet_skip_4": 1.9106012960785013,
+      "unet_skip_16": 2.156373471750298,
+      "skip_16_1": 0.9383748839818516,
+      "unet_16_4": 1.083912922681345,
+      "head_unet_skip_4": 9.660245144065536,
+      "head_unet_skip_16": 10.28004016005946
+    },
+    {
+      "modality": "2d",
+      "family": "diffusion",
+      "unet_skip_4": 1.1643522470299403,
+      "unet_skip_16": 1.21851944140116,
+      "skip_16_1": 1.0072475130934861,
+      "unet_16_4": 1.0451964450338993,
+      "head_unet_skip_4": 10.430901622769676,
+      "head_unet_skip_16": 10.3966570366342
+    },
+    {
+      "modality": "2d",
+      "family": "flow",
+      "unet_skip_4": 1.1632010534296795,
+      "unet_skip_16": 1.188291913165078,
+      "skip_16_1": 1.0569922654052475,
+      "unet_16_4": 1.070686469192262,
+      "head_unet_skip_4": 11.109344919252337,
+      "head_unet_skip_16": 10.771867020953868
+    }
+  ]
+}

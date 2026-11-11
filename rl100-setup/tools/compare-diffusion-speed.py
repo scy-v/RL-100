@@ -20,10 +20,26 @@ from rl_100.common.pytorch_util import dict_apply
 parser = argparse.ArgumentParser()
 parser.add_argument('--batch-size', type=int, default=128)
 parser.add_argument('--steps', type=int, default=20)
-parser.add_argument('--output', default='rl100-setup/reports/diffusion-speed.json')
+parser.add_argument('--family', choices=['diffusion', 'flow'], default='diffusion')
+parser.add_argument('--config-2d', help='Optional saved Hydra config for the 2D policy')
+parser.add_argument('--config-3d', help='Optional saved Hydra config for the 3D policy')
+parser.add_argument('--order', choices=['3d-first', '2d-first'], default='3d-first')
+parser.add_argument('--output', help='JSON output path, relative to the repo or absolute')
 args = parser.parse_args()
 root = Path(__file__).resolve().parents[2]
+if args.output is None:
+    args.output = 'rl100-setup/reports/' + args.family + '-speed.json'
 OmegaConf.register_new_resolver('eval', eval, replace=True)
+configs = {}
+for kind in ['3d', '2d']:
+    override = getattr(args, 'config_' + kind)
+    config_path = Path(override) if override else root / 'rl100-setup/reports/timing-configs' / (kind + '_' + args.family) / 'config.yaml'
+    configs[kind] = OmegaConf.load(config_path)
+assert configs['2d'].horizon == configs['3d'].horizon
+assert configs['2d'].n_obs_steps == configs['3d'].n_obs_steps
+assert configs['2d'].n_action_steps == configs['3d'].n_action_steps
+horizon = int(configs['2d'].horizon)
+obs_steps = int(configs['2d'].n_obs_steps)
 torch.set_num_threads(4)
 torch.manual_seed(100)
 np.random.seed(100)
@@ -33,8 +49,10 @@ assert torch.cuda.is_available()
 # Identical, real Door sequences for both policies; avoid episode boundaries.
 data = zarr.open(str(root / 'RL-100/data/adroit_door_medium.zarr'), mode='r')['data']
 B = args.batch_size
-starts = np.arange(B) % 96 + (np.arange(B) // 96) * 100
-indices = starts[:, None] + np.arange(3)[None, :]
+starts_per_episode = min(96, 100 - horizon)
+starts = np.arange(B) % starts_per_episode + (np.arange(B) // starts_per_episode) * 100
+indices = starts[:, None] + np.arange(obs_steps)[None, :]
+action_indices = starts[:, None] + np.arange(horizon)[None, :]
 arrays = {k: np.asarray(data[k][:], dtype=np.float32) for k in ['state','action','point_cloud']}
 normalizer = LinearNormalizer()
 normalizer.fit({'action': arrays['action'], 'agent_pos': arrays['state'], 'point_cloud': arrays['point_cloud']}, last_n_dims=1)
@@ -43,7 +61,7 @@ cpu_batch = {'obs': {
     'agent_pos': torch.from_numpy(arrays['state'][indices]),
     'point_cloud': torch.from_numpy(arrays['point_cloud'][indices]),
     'image': torch.from_numpy(images[indices]),
-}, 'action': torch.from_numpy(arrays['action'][indices])}
+}, 'action': torch.from_numpy(arrays['action'][action_indices])}
 del arrays, images
 
 class Timings:
@@ -86,22 +104,20 @@ def wrap_method(obj, name, timer, label):
             return original(*a, **kw)
     setattr(obj, name, wrapped)
 
-paths = {
-    '3d': 'outputs_vib_ablation/adroit_door_medium-rl100-timing_20261020_seed100/relu/dp3vib/skipnet',
-    '2d': 'outputs_2d/adroit_door_medium-rl100-timing_20261020_seed100/mish/resnet/skipnet',
-}
 results = {'device': torch.cuda.get_device_name(0), 'physical_gpu': __import__('os').environ.get('CUDA_VISIBLE_DEVICES'),
-           'torch': torch.__version__, 'batch_size': B, 'obs_steps': 3, 'dtype': 'float32',
+           'torch': torch.__version__, 'batch_size': B, 'obs_steps': obs_steps, 'horizon': horizon,
+           'action_steps': int(configs['2d'].n_action_steps), 'family': args.family, 'dtype': 'float32',
            'cuda_launch_blocking': __import__('os').environ.get('CUDA_LAUNCH_BLOCKING'),
            'steps_per_pass': args.steps, 'warmup_steps': 5,
            'scope': 'BC training only; matched input batch; no DDP, dataloader workers, environment rollout, checkpoint I/O or LR-scheduler timing. Original saved author-launcher policy and optimizer settings. CUDA events report elapsed stream time, including host gaps; nested regions are inclusive.',
            'models': {}}
 
-for kind in ['3d','2d']:
+for kind in (['3d','2d'] if args.order == '3d-first' else ['2d','3d']):
     print('START', kind, flush=True)
-    cfg = OmegaConf.load(root/'RL-100/data'/paths[kind]/'.hydra/config.yaml')
+    cfg = configs[kind]
     torch.manual_seed(100)
     policy = hydra.utils.instantiate(cfg.policy)
+    assert bool(getattr(policy, 'is_flow', False)) == (args.family == 'flow')
     policy.set_normalizer(normalizer)
     policy.cuda().train()
     optimizer = hydra.utils.instantiate(cfg.optimizer, params=policy.parameters())
@@ -203,6 +219,8 @@ for kind in ['3d','2d']:
             t=time.perf_counter();step();torch.cuda.synchronize();values.append((time.perf_counter()-t)*1000)
         no_aug=statistics.median(values);policy.use_aug=original_aug
     record={'baseline_step_wall_ms_median':baseline_wall,'samples_per_second':B/(baseline_wall/1000),
+            'baseline_step_wall_ms_p10':float(np.percentile(full_wall,10)),
+            'baseline_step_wall_ms_p90':float(np.percentile(full_wall,90)),
             'peak_allocated_mib':peak,'parameters_total':sum(p.numel() for p in policy.parameters()),
             'parameters_trainable':sum(p.numel() for p in policy.parameters() if p.requires_grad),
             'encoder_parameters':sum(p.numel() for p in encoder.parameters()),
@@ -218,4 +236,18 @@ for kind in ['3d','2d']:
     if kind=='3d': pe.chamfer_distance=original_chamfer
     del policy,encoder,optimizer,ema,gpu_batch
     split.clear();gc.collect();torch.cuda.empty_cache()
+three, two = results['models']['3d'], results['models']['2d']
+def observation_time(record):
+    timings = record['module_timings']
+    return sum(timings[k]['wall_ms_median'] for k in ['observation_total', 'observation_backward'])
+extra = two['module_timings']['total_step']['wall_ms_median'] - three['module_timings']['total_step']['wall_ms_median']
+obs_extra = observation_time(two) - observation_time(three)
+results['comparison'] = {
+    'two_d_to_three_d_step_ratio': two['baseline_step_wall_ms_median'] / three['baseline_step_wall_ms_median'],
+    'observation_path_extra_wall_ms': obs_extra,
+    'total_extra_wall_ms': extra,
+    'observation_path_fraction_of_extra_time': obs_extra / extra if extra else None,
+    'note': 'Nested observation subregions are inclusive; do not sum them with observation_total. BC-only results do not measure complete online PPO or distillation.'
+}
+Path(root/args.output).write_text(json.dumps(results,indent=2)+'\n')
 print('DONE',root/args.output,flush=True)

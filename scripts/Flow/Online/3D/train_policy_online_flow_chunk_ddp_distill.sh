@@ -9,6 +9,11 @@ set -euo pipefail
 DEBUG=False
 save_ckpt=True
 
+# Launch from the repository root; accept named and legacy positional arguments.
+source scripts/parse_training_args.sh
+parse_training_args online-3d "$@"
+set -- "${TRAINING_ARGS[@]}"
+
 alg_name=${1}
 task_name=${2}
 config_name='rl100_3d_flow'

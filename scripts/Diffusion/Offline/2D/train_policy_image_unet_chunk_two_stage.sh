@@ -12,11 +12,17 @@ set -euo pipefail
 DEBUG=${DEBUG:-False}
 save_ckpt=${save_ckpt:-True}
 
+# Launch from the repository root; accept named and legacy positional arguments.
+source scripts/parse_training_args.sh
+parse_training_args offline-chunk-2d "$@"
+set -- "${TRAINING_ARGS[@]}"
+
 alg_name=${1:?alg_name is required}
 task_name=${2:?task_name is required}
 addition_info=${3:?addition_info is required}
 seed=${4:?seed is required}
 NUM_GPUS=${5:-1}
+MAX_COMBINATIONS=${6:-${MAX_COMBINATIONS:-4}}
 
 config_name=${config_name:-'rl100_2d_epsilon'}
 exp_name=${task_name}-${alg_name}-${addition_info}
@@ -405,7 +411,11 @@ if [ "${RUN_SWEEP}" = true ] || [ "${RUN_SWEEP}" = "True" ]; then
         done
     done
 
-    echo "total parameter combinations: ${#param_combinations[@]}"
+    total_combinations=${#param_combinations[@]}
+    if [ "$MAX_COMBINATIONS" -ne 0 ] && [ "$MAX_COMBINATIONS" -lt "$total_combinations" ]; then
+        param_combinations=("${param_combinations[@]:0:MAX_COMBINATIONS}")
+    fi
+    echo "selected parameter combinations: ${#param_combinations[@]}/${total_combinations} (limit=${MAX_COMBINATIONS}; 0=full grid)"
     echo "available GPUs: ${num_available_gpus} (${gpu_list})"
 
     declare -a batch_pids=()

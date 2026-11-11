@@ -9,16 +9,27 @@ DEBUG=False
 
 save_ckpt=True
 
+# Launch from the repository root; support named and legacy positional arguments.
+source scripts/parse_training_args.sh
+parse_training_args offline-3d "$@"
+set -- "${TRAINING_ARGS[@]}"
+
 alg_name=${1}
 task_name=${2}
 config_name='rl100_3d_epsilon' #${alg_name}
 addition_info=${3}
 seed=${4}
+
+# Limit the sweep to its first N combinations; 0 runs the full author grid.
+MAX_COMBINATIONS=${5:-${MAX_COMBINATIONS:-4}}
+if ! [[ "$MAX_COMBINATIONS" =~ ^(0|[1-9][0-9]*)$ ]]; then
+    echo "MAX_COMBINATIONS must be a non-negative integer (0 = full grid)" >&2
+    exit 1
+fi
 exp_name=${task_name}-${alg_name}-${addition_info}
 
 
 gpu_id=$(bash scripts/find_gpu.sh)
-# gpu_id=${5}
 echo -e "\033[33mgpu id (to use): ${gpu_id}\033[0m"
 
 
@@ -46,12 +57,18 @@ act='relu'
 encoder_type='dp3vib'
 model='skipnet'
 run_dir="data/outputs_vib_ablation/${exp_name}_seed${seed}/${act}/${encoder_type}/${model}"
+combo_count=0
 for lr in 1e-6 2e-6 1e-5
 do
     for rollout_length in 3 10 5 15 20
     do
     for clip_std_max in 0.1 0.8 
     do
+    if [ "$MAX_COMBINATIONS" -ne 0 ] && [ "$combo_count" -ge "$MAX_COMBINATIONS" ]; then
+        break 3
+    fi
+    combo_count=$((combo_count + 1))
+    echo "=== Offline RL combination ${combo_count} (limit=${MAX_COMBINATIONS}; 0=full grid): lr=${lr}, rollout=${rollout_length}, clip=${clip_std_max} ==="
     python train.py --config-name=${config_name}.yaml \
                             task=${task_name} \
                             hydra.run.dir=${run_dir} \

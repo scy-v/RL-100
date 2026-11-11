@@ -1,0 +1,17 @@
+{
+  "checkpoint": "/data1/suchenyu/RL-100/data/outputs_vib_ablation/adroit_door_medium-rl100-0112_seed100/relu/dp3vib/skipnet/online_best_ema",
+  "checkpoint_score": 1.0,
+  "seed": 0,
+  "steps": 100,
+  "goals": 67,
+  "success_threshold": 25,
+  "success": true,
+  "return": 138.47619079714423,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "render_control_hz": 10,
+  "video": "/home/suchenyu/RL-100/rl100-setup/presentations/video/3D_Diffusion_Door_seed0_1080p.mp4",
+  "policy": "online best EMA, DDIM; not the distilled student",
+  "gpu": "2"
+}

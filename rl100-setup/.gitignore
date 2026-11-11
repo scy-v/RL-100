@@ -3,3 +3,6 @@
 /mujoco/
 /r3m/
 /system-libs/
+
+# Raw training exports; keep compact manifests, reports and curve figures.
+/presentations/curves/training-histories.json

@@ -1,0 +1,32 @@
+{
+  "3D Diffusion": {
+    "figure": "3d-diffusion-curves.png",
+    "selected_offline_run": "/data1/suchenyu/RL-100/data/outputs_vib_ablation/adroit_door_medium-rl100-0112_seed100/relu/dp3vib/skipnet/wandb/offline-run-20261020_145727-cffjyv77/run-cffjyv77.wandb",
+    "selected_offline_update": 3000,
+    "selected_offline_success": 0.7666666666666667,
+    "other_offline_configurations": 8,
+    "bc_epochs": 600,
+    "online_evaluations": 51,
+    "final_online_success": {
+      "online ppo success rates": 1,
+      "online ema success rates": 1,
+      "cm_success rates": 1
+    },
+    "loss_scope": "BC epoch means; offline selected configuration actor loss binned by 100 updates. Critic/dynamics separately pretrained; independent axes. Pre-distill epoch means; online PPO has 50 logged aggregate losses, ongoing distill loss not separately logged."
+  },
+  "3D Flow single": {
+    "figure": "3d-flow-single-curves.png",
+    "selected_offline_run": "/data1/suchenyu/RL-100/data/outputs_flow/adroit_door_medium-rl100-flow-0112_seed100/relu/dp3vib/skipnet/wandb/offline-run-20261020_152023-849lqzld/run-849lqzld.wandb",
+    "selected_offline_update": 4000,
+    "selected_offline_success": 0.8,
+    "other_offline_configurations": 5,
+    "bc_epochs": 800,
+    "online_evaluations": 51,
+    "final_online_success": {
+      "online ppo success rates": 0,
+      "online ema success rates": 0,
+      "cm_success rates": 0
+    },
+    "loss_scope": "BC epoch means; offline selected configuration actor loss binned by 100 updates. Critic/dynamics separately pretrained; independent axes. Pre-distill epoch means; online PPO has 50 logged aggregate losses, ongoing distill loss not separately logged."
+  }
+}

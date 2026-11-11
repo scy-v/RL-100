@@ -1519,10 +1519,28 @@ class TrainDP3Workspace:
                                 'green'
                             )
                     else:
+                        # Match train.py: distill the selected offline-RL policy,
+                        # not the BC policy copied into unio4 above. Every rank
+                        # must load both model and encoder before DDP distillation.
+                        offline_cp_timestamp = getattr(self.cfg, 'offline_cp_timestamp', None)
+                        offline_cp_timestep = getattr(self.cfg, 'offline_cp_timestep', None)
+                        if offline_cp_timestamp and offline_cp_timestep is not None:
+                            teacher_path = os.path.join(
+                                self.output_dir, offline_cp_timestamp, offline_cp_timestep)
+                        else:
+                            teacher_path = self.offline_best_path
+                        for filename in ('model.pt', 'encoder.pt'):
+                            checkpoint_path = os.path.join(teacher_path, filename)
+                            if not os.path.isfile(checkpoint_path):
+                                raise FileNotFoundError(
+                                    'Offline distillation requires an offline-RL teacher: '
+                                    f'{checkpoint_path}'
+                                )
+                        self.unio4.load(teacher_path)
                         if self.rank == 0:
                             cprint(
-                                'offline distilled model not found at {}; running offline distill before online'.format(
-                                    offline_distilled_path
+                                'loaded offline teacher from {}; running offline distill before online'.format(
+                                    teacher_path
                                 ),
                                 'yellow'
                             )

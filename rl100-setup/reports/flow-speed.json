@@ -1,0 +1,196 @@
+{
+  "device": "NVIDIA GeForce RTX 4090 D",
+  "physical_gpu": "2",
+  "torch": "2.4.0+cu121",
+  "batch_size": 128,
+  "obs_steps": 3,
+  "horizon": 3,
+  "action_steps": 1,
+  "family": "flow",
+  "dtype": "float32",
+  "cuda_launch_blocking": "1",
+  "steps_per_pass": 20,
+  "warmup_steps": 5,
+  "scope": "BC training only; matched input batch; no DDP, dataloader workers, environment rollout, checkpoint I/O or LR-scheduler timing. Original saved author-launcher policy and optimizer settings. CUDA events report elapsed stream time, including host gaps; nested regions are inclusive.",
+  "models": {
+    "3d": {
+      "baseline_step_wall_ms_median": 35.21920507773757,
+      "samples_per_second": 3634.3807226049557,
+      "baseline_step_wall_ms_p10": 33.44747554510832,
+      "baseline_step_wall_ms_p90": 39.11728928796948,
+      "peak_allocated_mib": 2096.82421875,
+      "parameters_total": 3925632,
+      "parameters_trainable": 3925284,
+      "encoder_parameters": 2228952,
+      "denoiser_parameters": 1696332,
+      "observation_feature_shape": [
+        384,
+        128
+      ],
+      "conditioning_width": 384,
+      "encoder_type": "dp3vib",
+      "policy_model": "skipnet",
+      "policy_activation": "relu",
+      "use_aug": false,
+      "gradient_split_check": {
+        "loss_difference": 0.0,
+        "gradient_max_absolute_difference": 0.0,
+        "reference_max_abs_gradient": 0.08216874301433563
+      },
+      "module_timings": {
+        "host_to_device": {
+          "gpu_elapsed_ms_median": 2.6265759468078613,
+          "wall_ms_median": 2.637263620272279
+        },
+        "backbone_forward": {
+          "gpu_elapsed_ms_median": 3.983359932899475,
+          "wall_ms_median": 3.995003877207637
+        },
+        "state_encoder_forward": {
+          "gpu_elapsed_ms_median": 0.10849599912762642,
+          "wall_ms_median": 0.11996179819107056
+        },
+        "vib_linear_heads": {
+          "gpu_elapsed_ms_median": 0.18569600023329258,
+          "wall_ms_median": 0.2295132726430893
+        },
+        "reconstruction_decoder": {
+          "gpu_elapsed_ms_median": 0.37905599921941757,
+          "wall_ms_median": 0.40209689177572727
+        },
+        "reconstruction_chamfer_metric": {
+          "gpu_elapsed_ms_median": 3.493664026260376,
+          "wall_ms_median": 3.511283779516816
+        },
+        "observation_total": {
+          "gpu_elapsed_ms_median": 9.079807758331299,
+          "wall_ms_median": 9.096960071474314
+        },
+        "denoiser_forward": {
+          "gpu_elapsed_ms_median": 0.9026559889316559,
+          "wall_ms_median": 0.9266245178878307
+        },
+        "loss_forward": {
+          "gpu_elapsed_ms_median": 11.330575942993164,
+          "wall_ms_median": 11.34011778049171
+        },
+        "denoiser_backward": {
+          "gpu_elapsed_ms_median": 1.3908159732818604,
+          "wall_ms_median": 1.4016770292073488
+        },
+        "observation_backward": {
+          "gpu_elapsed_ms_median": 15.705599784851074,
+          "wall_ms_median": 15.717009082436562
+        },
+        "optimizer": {
+          "gpu_elapsed_ms_median": 1.7971519827842712,
+          "wall_ms_median": 1.8088268116116524
+        },
+        "ema": {
+          "gpu_elapsed_ms_median": 2.0695040225982666,
+          "wall_ms_median": 2.0812235306948423
+        },
+        "total_step": {
+          "gpu_elapsed_ms_median": 35.61294364929199,
+          "wall_ms_median": 35.639433888718486
+        }
+      },
+      "no_augmentation_step_wall_ms_median": null
+    },
+    "2d": {
+      "baseline_step_wall_ms_median": 200.6615623831749,
+      "samples_per_second": 637.8899799233925,
+      "baseline_step_wall_ms_p10": 198.8937429152429,
+      "baseline_step_wall_ms_p90": 204.18584803119302,
+      "peak_allocated_mib": 9416.294921875,
+      "parameters_total": 14280611,
+      "parameters_trainable": 14280263,
+      "encoder_parameters": 12270587,
+      "denoiser_parameters": 2009676,
+      "observation_feature_shape": [
+        384,
+        536
+      ],
+      "conditioning_width": 1608,
+      "encoder_type": "resnet",
+      "policy_model": "skipnet",
+      "policy_activation": "mish",
+      "use_aug": true,
+      "gradient_split_check": {
+        "loss_difference": 0.0,
+        "gradient_max_absolute_difference": 2.9103830456733704e-09,
+        "reference_max_abs_gradient": 0.07424640655517578
+      },
+      "module_timings": {
+        "host_to_device": {
+          "gpu_elapsed_ms_median": 2.562000036239624,
+          "wall_ms_median": 2.5715739466249943
+        },
+        "augmentation": {
+          "gpu_elapsed_ms_median": 0.6736960113048553,
+          "wall_ms_median": 0.6942336913198233
+        },
+        "spatial_preprocessing": {
+          "gpu_elapsed_ms_median": 1.0629920363426208,
+          "wall_ms_median": 1.075133914127946
+        },
+        "imagenet_normalization": {
+          "gpu_elapsed_ms_median": 1.7095199823379517,
+          "wall_ms_median": 1.7199227586388588
+        },
+        "backbone_forward": {
+          "gpu_elapsed_ms_median": 56.663583755493164,
+          "wall_ms_median": 56.67625111527741
+        },
+        "vib_heads_sampling_kl": {
+          "gpu_elapsed_ms_median": 0.48894400894641876,
+          "wall_ms_median": 0.5025295540690422
+        },
+        "reconstruction_decoder": {
+          "gpu_elapsed_ms_median": 1.2851040363311768,
+          "wall_ms_median": 1.2973689008504152
+        },
+        "observation_total": {
+          "gpu_elapsed_ms_median": 62.8720645904541,
+          "wall_ms_median": 62.883906764909625
+        },
+        "denoiser_forward": {
+          "gpu_elapsed_ms_median": 0.9793600142002106,
+          "wall_ms_median": 1.007802551612258
+        },
+        "loss_forward": {
+          "gpu_elapsed_ms_median": 66.08795166015625,
+          "wall_ms_median": 66.10126630403101
+        },
+        "denoiser_backward": {
+          "gpu_elapsed_ms_median": 1.9005759954452515,
+          "wall_ms_median": 1.911441795527935
+        },
+        "observation_backward": {
+          "gpu_elapsed_ms_median": 124.09080123901367,
+          "wall_ms_median": 124.10886236466467
+        },
+        "optimizer": {
+          "gpu_elapsed_ms_median": 3.571631908416748,
+          "wall_ms_median": 3.586576785892248
+        },
+        "ema": {
+          "gpu_elapsed_ms_median": 3.38483202457428,
+          "wall_ms_median": 3.4010971430689096
+        },
+        "total_step": {
+          "gpu_elapsed_ms_median": 202.74806213378906,
+          "wall_ms_median": 202.7610605582595
+        }
+      },
+      "no_augmentation_step_wall_ms_median": 208.0120590981096
+    }
+  },
+  "comparison": {
+    "two_d_to_three_d_step_ratio": 5.697504016353145,
+    "observation_path_extra_wall_ms": 162.17879997566342,
+    "total_extra_wall_ms": 167.121626669541,
+    "observation_path_fraction_of_extra_time": 0.9704237758309323,
+    "note": "Nested observation subregions are inclusive; do not sum them with observation_total. BC-only results do not measure complete online PPO or distillation."
+  }
+}
